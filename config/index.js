@@ -14,18 +14,25 @@ module.exports = {
     // 代理列表, 是否开启代理通过[./dev.env.js]配置
     proxyTable: devEnv.OPEN_PROXY === false ? {} : {
       '/proxyApi': {
-        target: 'http://demo.renren.io/renren-fast/',
-        changeOrigin: true,
+        target: 'http://192.168.0.103:8080/renren-fast/', //home
+        // target: 'http://172.18.3.180:8080/renren-fast/',
+        // target: 'http://10.254.71.154:8080/renren-fast/', //sedin-wlan
+        changeOrigin: true, //允许跨域
         pathRewrite: {
-          '^/proxyApi': '/'
+          '^/proxyApi': 'http://192.168.0.103:8080/renren-fast/' //home
+          // '^/proxyApi': 'http://10.254.71.154:8080/renren-fast/'  //sedin-wlan
         }
       }
     },
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: '0.0.0.0', // whj
+    // host: '172.18.3.180', // whj
+    // host: '10.254.71.154', //sedin_wlan
+    //  host: '192.168.0.103', //my_home
+    // host:'localhost',
     port: 8001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: true,
+    autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-

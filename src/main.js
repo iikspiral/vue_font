@@ -9,9 +9,12 @@ import '@/element-ui-theme'
 import '@/assets/scss/index.scss'
 import httpRequest from '@/utils/httpRequest' // api: https://github.com/axios/axios
 import { isAuth } from '@/utils'
+import $ from 'jquery'
+import axios from 'axios'
 
 Vue.use(VueCookie)
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios
 
 // 非生产环境, 适配mockjs模拟数据                 // api: https://github.com/nuysoft/Mock
 if (process.env.NODE_ENV !== 'production') {
